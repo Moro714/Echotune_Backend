@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EchotuneClient.controller.RegisterSceneController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="97.0" prefWidth="600.0">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Echo">
+               <font>
+                  <Font name="Source Code Pro Bold" size="47.0" />
+               </font>
+            </Text>
+            <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Tune">
+               <font>
+                  <Font name="Source Code Pro Bold" size="48.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="250.24499893188477">
+         <VBox.margin>
+            <Insets bottom="2.0" />
+         </VBox.margin>
+      </Text>
+      <TextField fx:id="usernameInputField" maxWidth="250.0">
+         <VBox.margin>
+            <Insets bottom="8.0" />
+         </VBox.margin>
+      </TextField>
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="250.05899810791016">
+         <VBox.margin>
+            <Insets bottom="2.0" />
+         </VBox.margin>
+      </Text>
+      <TextField fx:id="passwordInputField" maxWidth="250.0">
+         <VBox.margin>
+            <Insets bottom="8.0" />
+         </VBox.margin>
+      </TextField>
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat Password" wrappingWidth="250.05899810791016" />
+      <TextField fx:id="repeatPasswordInputField" maxWidth="250.0">
+         <VBox.margin>
+            <Insets bottom="16.0" />
+         </VBox.margin>
+      </TextField>
+      <Button minWidth="100.0" mnemonicParsing="false" onAction="#onRegisterButtonClicked" text="Create account">
+         <VBox.margin>
+            <Insets bottom="16.0" />
+         </VBox.margin>
+      </Button>
+      <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="600.0">
+         <children>
+            <Button minHeight="14.0" mnemonicParsing="false" onAction="#onLoginAnchorClicked" prefWidth="95.0" style="-fx-background-color: rgba(0, 0, 0, 0);" text="Back to login" textFill="WHITE" underline="true">
+               <padding>
+                  <Insets top="-0.01" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+      <Text fx:id="errorText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" />
+   </children>
+</VBox>

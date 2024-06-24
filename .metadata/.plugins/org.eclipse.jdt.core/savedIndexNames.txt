@@ -1,0 +1,1 @@
+INDEX VERSION 1.134+C:\Users\user\Desktop\echotune_2\echotune\echotune_client\.metadata\.plugins\org.eclipse.jdt.core
