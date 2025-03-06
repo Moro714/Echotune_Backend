@@ -1,0 +1,25 @@
+package echotune_server.sql;
+
+enum SQLOperator {
+	LESS_THAN, GREATER_THAN, EQUALS
+}
+
+public class SQLCondition {
+	public static String create(String column1, SQLOperator operator, String column2) throws SQLConditionException {
+		String cond = column1;
+		switch (operator) {
+		case LESS_THAN:
+			cond += " < " + column2;
+			break;
+		case GREATER_THAN:
+			cond += " >" + column2;
+			break;
+		case EQUALS:
+			cond += " =" + column2;
+			break;
+		default:
+			throw new SQLConditionException("Operator " + operator + " not found!");
+		}
+		return cond;
+	}
+}

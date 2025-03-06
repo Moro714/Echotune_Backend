@@ -1,0 +1,26 @@
+package echotune_server.db;
+
+import echotune_server.entities.User;
+import echotune_server.jpa.JPAService;
+import echotune_server.sql.SQLQueryBuilder;
+import echotune_server.sql.SQLCondition;
+import echotune_server.sql.SQLConditionException;
+import echotune_server.sql.SQLOperator;
+
+public class UserQueryHandler {
+	public static User getUserById(int id) throws SQLConditionException {
+		SQLQueryBuilder queryBuilder = new SQLQueryBuilder();
+		String query = queryBuilder.selectAll().from("users").where(
+			new SQLCondition("id", SQLOperator.EQUALS, String.valueOf(id))
+		).build();
+		
+		//Get single instance of JPAService to handle our query
+		JPAService jpaService = JPAService.getInstance();
+		User user = jpaService.runTransaction(entityManager -> {
+			//Use entity manager to run query in table, get single result since we have only one user to get
+			return entityManager.createQuery(query, User.class).getSingleResult();
+		});
+		
+		return user;
+	}
+}

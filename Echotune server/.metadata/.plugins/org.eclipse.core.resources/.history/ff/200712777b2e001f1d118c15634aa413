@@ -1,0 +1,18 @@
+package echotune_server.db;
+
+import echotune_server.entities.User;
+import echotune_server.sql.SQLQueryBuilder;
+import echotune_server.sql.SQLCondition;
+import echotune_server.sql.SQLConditionException;
+import echotune_server.sql.SQLOperator;
+
+public class UserQueryHandler {
+	public static User getUserById(int id) throws SQLConditionException {
+		SQLQueryBuilder queryBuilder = new SQLQueryBuilder();
+		queryBuilder.selectAll().from("users").where(
+			new SQLCondition("id", SQLOperator.EQUALS, String.valueOf(id))
+		).build();
+		
+		
+	}
+}

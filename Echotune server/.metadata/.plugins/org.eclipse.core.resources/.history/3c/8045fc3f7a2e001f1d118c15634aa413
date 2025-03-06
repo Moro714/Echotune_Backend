@@ -1,0 +1,47 @@
+package echotune_server;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+ 
+import java.util.function.Function;
+
+public class JPAService {
+	private static JPAService instance;
+	private EntityManagerFactory factory;
+	
+	private JPAService() {
+		this.factory = Persistence.createEntityManagerFactory("echotune");
+	}
+	
+	public static synchronized JPAService getInstance() {
+		if(this.instance == null) {
+			this.instance = new JPAService();
+		}
+		return this.instance;
+	}
+	
+	public void unset() {
+		if(this.factory != null) {
+			this.factory.close();
+			this.instance = null;
+		}
+	}
+	
+	public <T> T runTransaction(Function<EntityManager, T> func) {
+		EntityManager manager = this.factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		
+		transaction.begin();
+		
+		try{
+			T ret = func.apply(manager);
+			transaction.commit();
+			return ret;
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+			transaction.rollback();
+		}
+	}
+}

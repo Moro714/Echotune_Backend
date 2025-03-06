@@ -1,0 +1,12 @@
+package echotune_server;
+
+import echotune_server.db.UserQueryHandler;
+import echotune_server.entities.User;
+
+public class Main {
+	public static void main(String[] args) {
+		User user = UserQueryHandler.getUserById(1);
+		System.out.println(user.getUsername());
+		System.out.println(user.getPasswordHash());
+	}
+}

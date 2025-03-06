@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\user\Desktop\EchoTune test client\.metadata\.plugins\org.eclipse.jdt.core
+3169418573.index
+1865797976.index
+4258880709.index

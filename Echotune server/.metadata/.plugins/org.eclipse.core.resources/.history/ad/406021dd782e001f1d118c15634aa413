@@ -1,0 +1,28 @@
+package echotune_server.sql;
+
+public class SQLQueryBuilder {
+	private String query;
+
+	public SQLQueryBuilder() {
+	}
+
+	public SQLQueryBuilder select(String param) {
+		this.query += "SELECT " + param;
+		return this;
+	}
+
+	public SQLQueryBuilder selectAll() {
+		this.query += "SELECT * ";
+		return this;
+	}
+
+	public SQLQueryBuilder from(String table) {
+		this.query += table + " ";
+		return this;
+	}
+
+	public SQLQueryBuilder where(SQLCondition condition) {
+		this.query += condition.build() + " ";
+		return this;
+	}
+}

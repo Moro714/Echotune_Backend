@@ -1,0 +1,54 @@
+package echotune_server.sql;
+
+public class SQLQueryBuilder {
+	private String query;
+
+	public SQLQueryBuilder() {
+	}
+
+	public SQLQueryBuilder select(String param) {
+		this.query += "SELECT" + param + " ";
+		return this;
+	}
+
+	public SQLQueryBuilder selectAll() {
+		this.query += "SELECT * ";
+		return this;
+	}
+
+	public SQLQueryBuilder from(String table) {
+		this.query += table + " ";
+		return this;
+	}
+
+	public SQLQueryBuilder where(SQLCondition condition) {
+		this.query += condition.build() + " ";
+		return this;
+	}
+	
+	public SQLQueryBuilder insertInto(String table) {
+		this.query += "INSERT INTO " + table + " ";
+		return this;
+	}
+	
+	public <T> SQLQueryBuilder values(String[][] values) {
+		for(int i = 0; i < values.length; i++) {
+			String value = "(";
+			for(int j = 0; j < values[i].length; j++) {
+				if(j != values[i].length - 1) {
+					value += values[i][j] + ", ";
+				} else {
+					value += values[i][j];
+				}
+			}
+			value += "),";
+			this.query += value;
+		}
+	}
+	
+	
+	public String build() {
+		this.query += ";";
+		return this.query;
+	}
+}

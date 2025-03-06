@@ -1,0 +1,5 @@
+package echotune_server;
+
+public class UserQueryHandler {
+
+}

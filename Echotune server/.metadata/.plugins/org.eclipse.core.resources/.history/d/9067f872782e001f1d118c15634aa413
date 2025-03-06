@@ -1,0 +1,9 @@
+package echotune_server;
+
+
+
+public class SQLConditionException extends Exception {
+	public SQLConditionException(String error) {
+		super(error);
+	}
+}

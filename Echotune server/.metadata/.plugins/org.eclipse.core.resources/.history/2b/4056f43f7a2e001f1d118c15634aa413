@@ -1,0 +1,7 @@
+package echotune_server.db;
+
+public class UserQueryHandler {
+	public static getUserById() {
+		
+	}
+}

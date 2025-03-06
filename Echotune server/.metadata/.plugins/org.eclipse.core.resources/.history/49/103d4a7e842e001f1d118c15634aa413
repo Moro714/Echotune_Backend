@@ -1,0 +1,10 @@
+package echotune_server;
+
+import echotune_server.db.UserQueryHandler;
+import echotune_server.entities.User;
+
+public class Main {
+	public static void main(String[] args) {
+		UserQueryHandler.addUser(new User("rares", "rares123"));
+	}
+}
